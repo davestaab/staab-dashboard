@@ -1,29 +1,8 @@
-# staab-dashboard
+# Staab Family Dashboard
 
-## Project setup
-```
-yarn install
-```
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9377162a-2db6-460d-ae59-d8ba4af19c3e/deploy-status)](https://app.netlify.com/sites/cranky-lamarr-094b6f/deploys)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+# About 
 
-### Compiles and minifies for production
-```
-yarn build
-```
+This is a family dashboard where we can post calendars, pictures, lists, etc to be shared in our house. 
 
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
