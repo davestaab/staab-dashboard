@@ -14,9 +14,9 @@
         ></iframe>
       </div>
       <div
-        class="row-span-11 col-span-3 bg-orange-300 flex items-center justify-center border-orange-700 border rounded-lg"
+        class="row-span-11 col-span-3 bg-orange-300 border-orange-700 border rounded-lg"
       >
-        <div>List</div>
+        <dashboard-list></dashboard-list>
       </div>
       <div
         class="row-span-5 col-span-6 bg-yellow-300 flex items-center justify-center border-yellow-700 border rounded-lg"
@@ -50,9 +50,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import DashboardList from '@/DashboardList.vue';
 export default Vue.extend({
   name: 'App',
-  components: {}
+  components: { DashboardList }
 });
 </script>
 
