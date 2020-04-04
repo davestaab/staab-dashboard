@@ -11,9 +11,11 @@
 </template>
 
 <script>
-export default {
-  name: 'DashboardList'
-};
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'ItemList'
+});
 </script>
 
 <style scoped></style>

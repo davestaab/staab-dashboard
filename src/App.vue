@@ -16,7 +16,7 @@
       <div
         class="row-span-11 col-span-3 bg-orange-300 border-orange-700 border rounded-lg"
       >
-        <dashboard-list></dashboard-list>
+        <item-list></item-list>
       </div>
       <div
         class="row-span-5 col-span-6 bg-yellow-300 flex items-center justify-center border-yellow-700 border rounded-lg"
@@ -50,10 +50,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import DashboardList from '@/DashboardList.vue';
+import ItemList from '@/ItemList.vue';
 export default Vue.extend({
   name: 'App',
-  components: { DashboardList }
+  components: { ItemList }
 });
 </script>
 
