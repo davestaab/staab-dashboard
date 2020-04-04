@@ -6,6 +6,7 @@
       <li>Library Park</li>
       <li>Parent Craft Time</li>
       <li>Nature hike/scavenger hunt</li>
+      <li>Bike Ride</li>
     </ul>
   </div>
 </template>
