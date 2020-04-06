@@ -16,7 +16,7 @@
       <div
         class="row-span-11 col-span-3 bg-orange-300 border-orange-700 border rounded-lg"
       >
-        <item-list></item-list>
+        <item-list :items="itemLists"></item-list>
       </div>
       <div
         class="row-span-5 col-span-6 bg-yellow-300 flex items-center justify-center border-yellow-700 border rounded-lg"
@@ -51,6 +51,7 @@ import ItemList from '@/ItemList.vue';
 import { AppState } from '@/constants';
 import Quote from '@/Quote.vue';
 import quotes from '@/data/quotes';
+import itemLists from '@/data/itemLists';
 import { createTimer } from '@/Timer.ts';
 import { defineComponent } from '@vue/composition-api';
 
@@ -62,7 +63,8 @@ export default defineComponent({
   },
   data(): AppState {
     return {
-      quotes
+      quotes,
+      itemLists
     };
   }
 });
