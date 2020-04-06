@@ -1,11 +1,11 @@
-import Vue from "vue";
+import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
 Vue.use(VueCompositionApi);
-import App from "./App.vue";
-import "./assets/tailwind.css";
+import App from './App.vue';
+import './assets/tailwind.css';
 
 Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App)
-}).$mount("#app");
+}).$mount('#app');

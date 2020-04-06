@@ -1,7 +1,7 @@
 import { Quote as QuoteType } from '@/constants';
-import Quote from "@/Quote.vue";
+import Quote from '@/Quote.vue';
 import { render } from '@testing-library/vue';
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 
 const quotes: Array<QuoteType> = [
   {
@@ -31,7 +31,9 @@ describe('quotes', function() {
         quoteList: []
       }
     });
-    expect(getByTestId('quote')).toHaveTextContent('Wherever you are - be all there.')
+    expect(getByTestId('quote')).toHaveTextContent(
+      'Wherever you are - be all there.'
+    );
     expect(getByTestId('source')).toHaveTextContent('- Jim Elliot');
   });
 
@@ -52,5 +54,4 @@ describe('quotes', function() {
     expect(getByTestId('quote')).toHaveTextContent('first');
     expect(getByTestId('source')).toHaveTextContent('- author');
   });
-
 });
