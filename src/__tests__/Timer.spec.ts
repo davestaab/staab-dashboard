@@ -1,23 +1,36 @@
-import { render, fireEvent } from '@testing-library/vue';
+import { render} from '@testing-library/vue';
+import vue from 'Vue';
 import Timer from '@/Timer.vue';
-import { THIRTY_SECONDS } from '@/constants';
+import { FIVE_SECONDS, THIRTY_SECONDS } from '@/constants';
+import mockNow from 'jest-mock-now';
+import TimeTestComponent from '@/__tests__/TimeTestComponent.vue';
+const NOW = 1586204625862;
 
 describe('Timer', function() {
+  beforeEach(() => {
+    jest.useFakeTimers();
+    mockNow(new Date(NOW));
+  });
   it('should increment thirtySecond value when time changes', async function() {
-    const start = Date.now();
-    const { getByText, updateProps } = render(Timer, {
-        props: { now: start },
-        scopedSlots: {
-          default:
-            '<p slot-scope="{ thirtySeconds }">30 sec counter: {{thirtySeconds}}</p>'
-        }
-    });
-    getByText('30 sec counter: 0');
-    await updateProps({ now: start + THIRTY_SECONDS - 1 });
-    getByText('30 sec counter: 0');
-    await updateProps({ now: start + THIRTY_SECONDS });
-    getByText('30 sec counter: 1');
-    await updateProps({ now: start + THIRTY_SECONDS * 2 });
-    getByText('30 sec counter: 2');
+    const { getByTestId } = render(TimeTestComponent);
+    // initial state
+    expect(getByTestId('now')).toHaveTextContent(`now: ${NOW}`);
+    expect(getByTestId('fiveSeconds')).toHaveTextContent('fiveSeconds: 0');
+    expect(getByTestId('thirtySeconds')).toHaveTextContent('thirtySeconds: 0');
+    // advancing 5 seconds
+    mockNow(new Date(NOW + FIVE_SECONDS));
+    jest.runOnlyPendingTimers();
+    await vue.nextTick();
+    expect(getByTestId('now')).toHaveTextContent(`now: ${NOW + FIVE_SECONDS}`);
+    expect(getByTestId('fiveSeconds')).toHaveTextContent('fiveSeconds: 1');
+    expect(getByTestId('thirtySeconds')).toHaveTextContent('thirtySeconds: 0');
+
+    // advnacing 30 seconds
+    mockNow(new Date(NOW + THIRTY_SECONDS));
+    jest.runOnlyPendingTimers();
+    await vue.nextTick();
+    expect(getByTestId('now')).toHaveTextContent(`now: ${NOW + THIRTY_SECONDS}`);
+    expect(getByTestId('fiveSeconds')).toHaveTextContent('fiveSeconds: 6');
+    expect(getByTestId('thirtySeconds')).toHaveTextContent('thirtySeconds: 1');
   });
 });
