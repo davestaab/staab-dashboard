@@ -1,5 +1,5 @@
 import { render} from '@testing-library/vue';
-import vue from 'Vue';
+import vue from 'vue';
 import Timer from '@/Timer.vue';
 import { FIVE_SECONDS, THIRTY_SECONDS } from '@/constants';
 import mockNow from 'jest-mock-now';
