@@ -44,4 +44,13 @@ describe('ItemList', function() {
     expect(getByText('one')).not.toHaveClass('line-through');
     expect(getByText('two')).toHaveClass('line-through');
   });
+  it('should allow multiple lists', function() {
+    const { getByText } = render(ItemList, {
+      props: {
+        items: [...items, { title: 'title two', items: [] }]
+      }
+    });
+    getByText('title');
+    getByText('title two');
+  });
 });
