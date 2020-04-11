@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-left p-6" v-for="(list, i) in items" :key="i">
+    <div class="text-left px-6 my-6" v-for="(list, i) in items" :key="i">
       <div class="font-bond text-2xl">
         {{ list.title }}
       </div>
