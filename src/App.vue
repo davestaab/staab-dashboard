@@ -21,7 +21,7 @@
       <div
         class="row-span-6 col-span-9 bg-yellow-300 flex flex-column items-center justify-center border-yellow-700 border rounded-lg"
       >
-        <div class="flex-grow">Pictures</div>
+        <div class="flex-grow">Pictures preview</div>
       </div>
       <div
         class="col-span-12 bg-blue-300 flex items-center justify-center border-blue-700 border rounded-lg"
