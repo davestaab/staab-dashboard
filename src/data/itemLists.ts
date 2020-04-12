@@ -22,12 +22,12 @@ export default [
       { name: 'Shredded pork sandwiches', complete: false },
       { name: 'Steak fajitas', complete: false },
       { name: 'Beef and broccoli', complete: false },
-      { name: 'Crescent roll sandwiches', complete: false },
+      { name: 'Crescent roll sandwiches', complete: true },
       { name: 'Chicken burritos', complete: false },
       { name: 'Ham, rolls, eggs, potatoes, green beans', complete: false },
       { name: 'Keto pizza casserole', complete: false },
       { name: 'Food truck', complete: false },
-      { name: 'Meatballs', complete: false }
+      { name: 'Meatballs', complete: true }
     ]
   }
 ] as ItemLists;
