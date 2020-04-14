@@ -8,7 +8,7 @@ export default [
   },
   {
     quote: 'Rejoice in the Lord always; again I will say, rejoice.',
-    source: 'Philippians 4:3'
+    source: 'Philippians 4:4'
   },
   {
     quote: 'For all have sinned and fall short of the glory of God.',
