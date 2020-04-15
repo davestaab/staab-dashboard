@@ -20,7 +20,7 @@ export default [
       { name: 'Chicken cordon blue pasta', complete: false },
       { name: 'Whole chicken', complete: false },
       { name: 'Shredded pork sandwiches', complete: false },
-      { name: 'Steak fajitas', complete: false },
+      { name: 'Steak fajitas', complete: true },
       { name: 'Beef and broccoli', complete: false },
       { name: 'Chicken burritos', complete: false },
       { name: 'Keto pizza casserole', complete: false },
