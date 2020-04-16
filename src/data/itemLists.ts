@@ -2,23 +2,10 @@ import { ItemLists } from '@/constants';
 
 export default [
   {
-    title: 'Quarantine Survival',
-    items: [
-      {
-        name: 'Parent Craft Time',
-        complete: false
-      },
-      {
-        name: 'Bike Ride',
-        complete: true
-      }
-    ]
-  },
-  {
     title: 'Meals',
     items: [
       { name: 'Chicken cordon blue pasta', complete: false },
-      { name: 'Whole chicken', complete: false },
+      { name: 'Whole chicken', complete: true },
       { name: 'Shredded pork sandwiches', complete: false },
       { name: 'Steak fajitas', complete: true },
       { name: 'Beef and broccoli', complete: false },
