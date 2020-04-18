@@ -4,27 +4,20 @@
       <div class="font-bond text-2xl">
         {{ list.title }}
       </div>
-      <ul class="list-disc px-8 py-4">
-        <li
-          v-for="(item, j) in list.items"
-          :key="j"
-          :class="{ 'line-through': item.complete }"
-        >
-          {{ item.name }}
-        </li>
-      </ul>
+      <items :items="list.items"></items>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
+import Items from '@/Items.vue';
 
 export default Vue.extend({
   name: 'ItemList',
+  components: { Items },
   props: {
-    items: Array,
-    default: []
+    items: Array
   }
 });
 </script>

@@ -1,17 +1,19 @@
 import { render } from '@testing-library/vue';
 import ItemList from '@/ItemList.vue';
 import { ItemLists } from '@/constants';
+import indexOf from 'lodash/fp/indexOf';
+
 const items: ItemLists = [
   {
     title: 'title',
     items: [
       {
         name: 'one',
-        complete: false
+        complete: true
       },
       {
         name: 'two',
-        complete: true
+        complete: false
       }
     ]
   }
@@ -53,4 +55,18 @@ describe('ItemList', function() {
     getByText('title');
     getByText('title two');
   });
+
+  it('should sort finished items last', function() {
+    const { getAllByTestId } = render(ItemList, {
+      props: {
+        items
+      }
+    });
+    const all = getAllByTestId('list-item').map(toTextContent);
+    const doneIndex = indexOf('one')(all);
+    const todoIndex = indexOf('two')(all);
+    expect(todoIndex).toBeLessThan(doneIndex);
+  });
 });
+
+const toTextContent = (n: HTMLElement) => n.textContent ? n.textContent.trim() : ''
