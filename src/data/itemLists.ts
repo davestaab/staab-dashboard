@@ -6,9 +6,9 @@ export default [
     items: [
       { name: 'Chicken cordon blue pasta', complete: false },
       { name: 'Whole chicken', complete: true },
-      { name: 'Shredded pork sandwiches', complete: false },
+      { name: 'Shredded pork sandwiches', complete: true },
       { name: 'Steak fajitas', complete: true },
-      { name: 'Beef and broccoli', complete: false },
+      { name: 'Beef and broccoli', complete: true },
       { name: 'Chicken burritos', complete: false },
       { name: 'Keto pizza casserole', complete: false },
       { name: 'Ham, rolls, eggs, potatoes, green beans', complete: true },
