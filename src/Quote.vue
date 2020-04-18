@@ -6,13 +6,13 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import { Quote } from '@/constants';
+import { defineComponent } from '@vue/composition-api';
 const defaultQuote = {
   quote: 'Wherever you are - be all there.',
   source: 'Jim Elliot'
 };
-export default Vue.extend({
+export default defineComponent({
   name: 'Quote',
   props: {
     quoteList: {
@@ -26,9 +26,10 @@ export default Vue.extend({
   },
   computed: {
     quote(): Quote {
-      return this.quoteList.length === 0
+      const q = this.quoteList as Array<Quote>;
+      return q.length === 0
         ? defaultQuote
-        : (this.quoteList[this.counter % this.quoteList.length] as Quote);
+        : q[(this.counter as number) % q.length];
     }
   }
 });

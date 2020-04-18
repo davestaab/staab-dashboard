@@ -6,7 +6,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prebuild": "node scripts/buildTimestamp.js",
+    "checkall": "yarn lint && yarn test:unit && yarn build"
   },
   "dependencies": {
     "core-js": "^3.6.4",

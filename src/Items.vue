@@ -12,10 +12,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { sortBy } from 'lodash';
+import sortBy from 'lodash/sortBy';
+import { defineComponent } from '@vue/composition-api';
 
-export default Vue.extend({
+export default defineComponent({
   name: 'Items',
   props: {
     items: {

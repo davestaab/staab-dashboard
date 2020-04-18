@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="absolute mx-4 text-xs text-gray-400">{{ lastBuiltLocal }}</div>
     <div class="grid grid-cols-12 grid-row-12 gap-4 p-4 flex-grow h-full">
       <div
         class="row-span-5 col-span-9 bg-white flex items-center justify-center border-red-700 border rounded-lg"
@@ -32,9 +33,8 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import ItemList from '@/ItemList.vue';
-import { AppState } from '@/constants';
 import Quote from '@/Quote.vue';
 import quotes from '@/data/quotes';
 import itemLists from '@/data/itemLists';
@@ -47,11 +47,31 @@ export default defineComponent({
   setup() {
     return createTimer();
   },
-  data(): AppState {
+  data() {
     return {
       quotes,
-      itemLists
+      itemLists,
+      build: {
+        buildTime: 0
+      }
     };
+  },
+  created() {
+    this.checkBuildTime();
+  },
+  methods: {
+    async checkBuildTime() {
+      const build = await fetch('build.json').then(d => d.json());
+      this.build = build;
+      return build;
+    }
+  },
+  computed: {
+    lastBuiltLocal() {
+      return this.build.buildTime === 0
+        ? '0'
+        : new Date(this.build.buildTime).toLocaleString();
+    }
   }
 });
 </script>

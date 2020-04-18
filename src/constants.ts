@@ -4,6 +4,7 @@ export const THIRTY_SECONDS = 30 * 1000;
 export interface AppState {
   quotes: Array<Quote>;
   itemLists: ItemLists;
+  build: Build;
 }
 
 export interface Quote {
@@ -21,4 +22,8 @@ export interface ItemList {
 export interface Item {
   name: string;
   complete: boolean;
+}
+
+export interface Build {
+  buildTime: number;
 }
