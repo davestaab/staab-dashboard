@@ -43,8 +43,8 @@ describe('ItemList', function() {
         items
       }
     });
-    expect(getByText('one')).not.toHaveClass('line-through');
-    expect(getByText('two')).toHaveClass('line-through');
+    expect(getByText('two')).not.toHaveClass('line-through');
+    expect(getByText('one')).toHaveClass('line-through');
   });
   it('should allow multiple lists', function() {
     const { getByText } = render(ItemList, {
@@ -55,6 +55,9 @@ describe('ItemList', function() {
     getByText('title');
     getByText('title two');
   });
+
+  const toTextContent = (n: HTMLElement) =>
+    n.textContent ? n.textContent.trim() : '';
 
   it('should sort finished items last', function() {
     const { getAllByTestId } = render(ItemList, {
@@ -68,5 +71,3 @@ describe('ItemList', function() {
     expect(todoIndex).toBeLessThan(doneIndex);
   });
 });
-
-const toTextContent = (n: HTMLElement) => n.textContent ? n.textContent.trim() : ''
