@@ -1,6 +1,6 @@
 import { render } from '@testing-library/vue';
 import vue from 'vue';
-import { FIVE_SECONDS, THIRTY_SECONDS } from '@/constants';
+import {FIFTEEN_MINUTES, FIVE_SECONDS, THIRTY_SECONDS} from '@/constants';
 import mockNow from 'jest-mock-now';
 import TimeTestComponent from '@/__tests__/TimeTestComponent.vue';
 const NOW = 1586204625862;
@@ -23,6 +23,7 @@ describe('Timer', function() {
     expect(getByTestId('now')).toHaveTextContent(`now: ${NOW + FIVE_SECONDS}`);
     expect(getByTestId('fiveSeconds')).toHaveTextContent('fiveSeconds: 1');
     expect(getByTestId('thirtySeconds')).toHaveTextContent('thirtySeconds: 0');
+    expect(getByTestId('fifteenMinutes')).toHaveTextContent('fifteenMinutes: 0');
 
     // advancing 30 seconds
     mockNow(new Date(NOW + THIRTY_SECONDS));
@@ -33,5 +34,17 @@ describe('Timer', function() {
     );
     expect(getByTestId('fiveSeconds')).toHaveTextContent('fiveSeconds: 6');
     expect(getByTestId('thirtySeconds')).toHaveTextContent('thirtySeconds: 1');
+    expect(getByTestId('fifteenMinutes')).toHaveTextContent('fifteenMinutes: 0');
+
+    // advancing 15 minutes
+    mockNow(new Date(NOW + FIFTEEN_MINUTES));
+    jest.runOnlyPendingTimers();
+    await vue.nextTick();
+    expect(getByTestId('now')).toHaveTextContent(
+      `now: ${NOW + FIFTEEN_MINUTES}`
+    );
+    // expect(getByTestId('fiveSeconds')).toHaveTextContent('fiveSeconds: 6');
+    // expect(getByTestId('thirtySeconds')).toHaveTextContent('thirtySeconds: 1');
+    expect(getByTestId('fifteenMinutes')).toHaveTextContent('fifteenMinutes: 1');
   });
 });

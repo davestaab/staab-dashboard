@@ -5,12 +5,18 @@ import {
   onUnmounted,
   Ref
 } from '@vue/composition-api';
-import { FIVE_SECONDS, THIRTY_SECONDS } from '@/constants';
+import {
+  DEFAULT_INTERVAL,
+  FIFTEEN_MINUTES,
+  FIVE_SECONDS,
+  THIRTY_SECONDS
+} from '@/constants';
 
 export interface TimerState {
   now: Ref<number>;
   thirtySeconds: Readonly<Ref<number>>;
   fiveSeconds: Readonly<Ref<number>>;
+  fifteenMinutes: Readonly<Ref<number>>;
 }
 
 export function createTimer(start = Date.now()): TimerState {
@@ -22,6 +28,7 @@ export function createTimer(start = Date.now()): TimerState {
   };
   const thirtySeconds = computed(createComputedPeriod(THIRTY_SECONDS));
   const fiveSeconds = computed(createComputedPeriod(FIVE_SECONDS));
+  const fifteenMinutes = computed(createComputedPeriod(FIFTEEN_MINUTES));
 
   function t() {
     now.value = Date.now();
@@ -29,7 +36,7 @@ export function createTimer(start = Date.now()): TimerState {
 
   let intervalRef: number;
   onMounted(() => {
-    intervalRef = window.setInterval(t, FIVE_SECONDS);
+    intervalRef = window.setInterval(t, DEFAULT_INTERVAL);
   });
 
   onUnmounted(() => {
@@ -39,6 +46,7 @@ export function createTimer(start = Date.now()): TimerState {
   return {
     now,
     thirtySeconds,
-    fiveSeconds
+    fiveSeconds,
+    fifteenMinutes
   };
 }

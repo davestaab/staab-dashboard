@@ -33,45 +33,65 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import ItemList from '@/ItemList.vue';
 import Quote from '@/Quote.vue';
-import quotes from '@/data/quotes';
+import quotes from '@/data/quotes.ts';
 import itemLists from '@/data/itemLists';
 import { createTimer } from '@/Timer.ts';
-import { defineComponent } from '@vue/composition-api';
+import {
+  computed,
+  defineComponent,
+  onMounted,
+  reactive,
+  Ref,
+  watch,
+  watchEffect
+} from '@vue/composition-api';
+import { Build, ItemLists } from '@/constants';
 
+interface AppState {
+  quotes: Array<Quote>;
+  itemLists: ItemLists;
+  build: Build;
+  thirtySeconds: Readonly<Ref<number>>;
+  lastBuiltLocal: Readonly<Ref<string>>;
+}
 export default defineComponent({
   name: 'App',
   components: { ItemList, Quote },
-  setup() {
-    return createTimer();
-  },
-  data() {
+  setup(): AppState {
+    const { thirtySeconds, fifteenMinutes } = createTimer();
+    const build = reactive({
+      buildTime: 0
+    });
+    const lastBuiltLocal = computed(() => {
+      return build.buildTime === 0
+        ? '0'
+        : new Date(build.buildTime).toLocaleString();
+    });
+    async function checkBuildTime(): Promise<void> {
+      const serverBuild: Build = await fetch('build.json').then(d => d.json());
+      build.buildTime = serverBuild.buildTime;
+    }
+    watch(
+      () => fifteenMinutes,
+      (val:Readonly<Ref<number>>) => {
+        checkBuildTime();
+      },
+      {
+        onTrigger() {
+          debugger;
+        }
+      }
+    );
     return {
       quotes,
       itemLists,
-      build: {
-        buildTime: 0
-      }
+      thirtySeconds,
+      build,
+      lastBuiltLocal
     };
-  },
-  created() {
-    this.checkBuildTime();
-  },
-  methods: {
-    async checkBuildTime() {
-      const build = await fetch('build.json').then(d => d.json());
-      this.build = build;
-      return build;
-    }
-  },
-  computed: {
-    lastBuiltLocal() {
-      return this.build.buildTime === 0
-        ? '0'
-        : new Date(this.build.buildTime).toLocaleString();
-    }
   }
 });
 </script>
