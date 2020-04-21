@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="text-left px-6 my-6" v-for="(list, i) in items" :key="i">
-      <div class="font-bond text-2xl">
+    <div class="text-left px-6 my-2" v-for="(list, i) in items" :key="i">
+      <div class="font-bond text-xl">
         {{ list.title }}
       </div>
       <items :items="list.items"></items>
