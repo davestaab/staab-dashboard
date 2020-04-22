@@ -11,11 +11,11 @@ export default [
       { name: 'Chicken cordon blue pasta', complete: false },
       { name: 'Shredded pork sandwiches', complete: true },
       { name: 'Beef and broccoli', complete: true },
-      { name: 'Chicken burritos', complete: false },
+      { name: 'Chicken burritos', complete: true },
       { name: 'Keto pizza casserole', complete: false },
       { name: 'Food truck', complete: false },
       { name: 'Pork chops', complete: false },
-      { name: 'Chicken Tikka', complete: false },
+      { name: 'Chicken Tikka', complete: true },
       { name: 'Chicken skillet', complete: false },
       { name: 'Tacos', complete: false }
     ]
