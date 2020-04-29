@@ -36,5 +36,6 @@ export default [
       { name: 'Hang contact paper in our room', complete: false },
       { name: 'Get something for costumes', complete: false },
       { name: 'Clean carpets', complete: false }
+    ]
   }
 ] as ItemLists;
