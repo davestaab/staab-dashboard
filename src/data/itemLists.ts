@@ -3,7 +3,7 @@ import { ItemLists } from '@/constants';
 export default [
   {
     title: 'Activities',
-    items: [{ name: 'Baxter Gardens', complete: false }]
+    items: [{ name: 'Baxter Gardens', complete: true }]
   },
   {
     title: 'Meals',
@@ -12,13 +12,18 @@ export default [
       { name: 'Keto pizza casserole', complete: false },
       { name: 'Pork chops', complete: false },
       { name: 'Tacos', complete: false },
-      { name: 'Chicken skillet', complete: false },
-      { name: 'Food truck', complete: true },
+      { name: 'Food truck', complete: false },
       { name: 'Grilled pork tenderloin', complete: true },
       { name: 'Chicken burritos', complete: true },
       { name: 'Shredded pork sandwiches', complete: true },
       { name: 'Beef and broccoli', complete: true },
-      { name: 'Chicken Tikka', complete: true }
+      { name: 'Chicken Tikka', complete: true },
+      { name: 'Shrimp and sausage sheet pan', complete: false },
+      { name: 'Ribs', complete: false},
+      { name: 'Chicken carbonara', complete: false },
+      { name: 'Steak and Chicken Stir Fry', complete: false },
+      { name: 'Salmon', complete: false }
+
     ]
   },
   {
@@ -30,16 +35,6 @@ export default [
       { name: '4x4s for swing', complete: false },
       { name: 'Hang contact paper in our room', complete: false },
       { name: 'Get something for costumes', complete: false },
-      { name: 'Clean carpets', complete: false },
-      { name: 'Paint Deanna’s dresser', complete: true },
-      { name: 'Kids spigot', complete: true },
-      { name: 'Pressure wash Back patio', complete: true },
-      { name: 'Paint Laundry Room', complete: true },
-      { name: 'Cabinets In laundry room', complete: true },
-      { name: 'Dinosaur sign', complete: true },
-      { name: 'Clean out Kids closet', complete: true },
-      { name: 'Clean out Bonus room', complete: true },
-      { name: 'Clean out downstairs closet', complete: true }
-    ]
+      { name: 'Clean carpets', complete: false }
   }
 ] as ItemLists;
