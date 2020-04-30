@@ -1,9 +1,10 @@
 <template>
-  <ul class="list-disc px-8 py-4">
+  <ul class="list-disc px-8">
     <li
       v-for="(item, i) in sortedItems"
       :key="i"
       :class="{ 'line-through': item.complete }"
+      class="text-xs"
       data-testid="list-item"
     >
       {{ item.name }}
