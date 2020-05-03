@@ -5,6 +5,7 @@ import {
   onUnmounted,
   Ref
 } from '@vue/composition-api';
+
 import {
   DEFAULT_INTERVAL,
   FIFTEEN_MINUTES,

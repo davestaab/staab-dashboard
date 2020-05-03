@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <div class="absolute mx-4 text-xs text-gray-400">{{ lastBuiltLocal }}</div>
+    <div class="absolute mx-4 text-xs text-gray-400">
+      {{ lastBuiltLocal }}
+    </div>
     <div class="grid grid-cols-12 grid-row-12 gap-4 p-4 flex-grow h-full">
       <div
         class="row-span-5 col-span-9 bg-white flex items-center justify-center border-red-700 border rounded-lg"
@@ -39,21 +41,13 @@ import Quote from '@/Quote.vue';
 import quotes from '@/data/quotes.ts';
 import itemLists from '@/data/itemLists';
 import { createTimer } from '@/Timer.ts';
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  reactive,
-  Ref,
-  watch,
-  watchEffect
-} from '@vue/composition-api';
-import { Build, ItemLists } from '@/constants';
+import { defineComponent, Ref } from '@vue/composition-api';
+import { ItemLists, Quote as QuoteType } from '@/constants';
+import useCheckBuildTime from '@/CheckBuild';
 
 interface AppState {
-  quotes: Array<Quote>;
+  quotes: Array<QuoteType>;
   itemLists: ItemLists;
-  build: Build;
   thirtySeconds: Readonly<Ref<number>>;
   lastBuiltLocal: Readonly<Ref<string>>;
 }
@@ -62,34 +56,12 @@ export default defineComponent({
   components: { ItemList, Quote },
   setup(): AppState {
     const { thirtySeconds, fifteenMinutes } = createTimer();
-    const build = reactive({
-      buildTime: 0
-    });
-    const lastBuiltLocal = computed(() => {
-      return build.buildTime === 0
-        ? '0'
-        : new Date(build.buildTime).toLocaleString();
-    });
-    async function checkBuildTime(): Promise<void> {
-      const serverBuild: Build = await fetch('build.json').then(d => d.json());
-      build.buildTime = serverBuild.buildTime;
-    }
-    watch(
-      () => fifteenMinutes,
-      (val:Readonly<Ref<number>>) => {
-        checkBuildTime();
-      },
-      {
-        onTrigger() {
-          debugger;
-        }
-      }
-    );
+    const { lastBuiltLocal } = useCheckBuildTime(fifteenMinutes);
+
     return {
       quotes,
       itemLists,
       thirtySeconds,
-      build,
       lastBuiltLocal
     };
   }
