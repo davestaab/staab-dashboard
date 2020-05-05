@@ -5,11 +5,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import useCheckBuildTime from '@/CheckBuild';
 import { createTimer } from '@/Timer';
+import { defineComponent } from '@vue/composition-api';
 
-export default {
+export default defineComponent({
   name: 'CheckBuildTestComponent.vue',
   setup() {
     const { fifteenMinutes } = createTimer();
@@ -19,5 +20,5 @@ export default {
       lastBuiltLocal
     };
   }
-};
+});
 </script>

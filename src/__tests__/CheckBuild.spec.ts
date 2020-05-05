@@ -2,7 +2,7 @@ import fetchMock from 'jest-fetch-mock';
 fetchMock.enableMocks();
 
 import { render, waitFor } from '@testing-library/vue';
-import CheckBuildTestComponent from './CheckBuildTestComponent.vue';
+import CheckBuildTestComponent from '@/__tests__/CheckBuildTestComponent.vue';
 import mockNow from 'jest-mock-now';
 import { FIFTEEN_MINUTES } from '@/constants';
 const NOW = 1588213747989;
