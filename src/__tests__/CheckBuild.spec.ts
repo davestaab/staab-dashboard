@@ -37,18 +37,19 @@ describe('CheckBuild', function() {
 
     const { getByText } = render(CheckBuildTestComponent);
     await waitFor(() => {
-      getByText('local: 4/29/2020, 10:29:07 PM');
+      getByText(`local: ${new Date(NOW).toLocaleString()}`);
     });
     expect(fetchMock.mock.calls.length).toBe(1);
     expect(window.location.reload).not.toHaveBeenCalled();
     // after 15 minutes
-    mockNow(new Date(NOW + FIFTEEN_MINUTES));
+    const fifteenLater = new Date(NOW + FIFTEEN_MINUTES);
+    mockNow(fifteenLater);
     fetchMock.mockResponseOnce(
       JSON.stringify({ buildTime: NOW + FIFTEEN_MINUTES })
     );
     jest.runOnlyPendingTimers();
     await waitFor(() => {
-      getByText('local: 4/29/2020, 10:44:07 PM');
+      getByText(`local: ${fifteenLater.toLocaleString()}`);
     });
     expect(fetchMock.mock.calls.length).toBe(2);
     expect(window.location.reload).toHaveBeenCalledTimes(1);
