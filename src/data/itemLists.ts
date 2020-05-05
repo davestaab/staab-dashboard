@@ -11,14 +11,14 @@ export default [
       { name: 'Chicken cordon blue pasta', complete: false },
       { name: 'Keto pizza casserole', complete: false },
       { name: 'Pork chops', complete: false },
-      { name: 'Tacos', complete: false },
-      { name: 'Shrimp and sausage sheet pan', complete: false },
-      { name: 'Ribs', complete: false },
       { name: 'Chicken Carbonara', complete: false },
       { name: 'Steak and Chicken Stir Fry', complete: false },
       { name: 'Salmon', complete: false },
-      { name: 'Food truck', complete: false },
       { name: 'Barbecue Quesadillas', complete: false },
+      { name: 'Tacos', complete: true },
+      { name: 'Shrimp and sausage sheet pan', complete: true},
+      { name: 'Ribs', complete: true },
+      { name: 'Food truck', complete: true },
       { name: 'Grilled pork tenderloin', complete: true },
       { name: 'Chicken burritos', complete: true },
       { name: 'Shredded pork sandwiches', complete: true },
@@ -33,10 +33,10 @@ export default [
       { name: 'Pressure wash Sides of house', complete: false },
       { name: 'Paint Our room', complete: false },
       { name: '4x4s for swing', complete: false },
-      { name: 'Hang contact paper in our room', complete: false },
       { name: 'Get something for costumes', complete: false },
       { name: 'Clean carpets', complete: false },
-      { name: 'Polyurethane butcher block', complete: false }
+      { name: 'Hang contact paper in our room', complete: true },
+      { name: 'Polyurethane butcher block', complete: true }
     ]
   }
 ] as ItemLists;
