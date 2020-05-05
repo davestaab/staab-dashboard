@@ -27,7 +27,7 @@ describe('CheckBuild', function() {
 
     const { getByText } = render(CheckBuildTestComponent);
     await waitFor(() => {
-      getByText('local: 4/29/2020, 10:29:07 PM');
+      getByText(`local: ${new Date(NOW).toLocaleString()}`);
     });
     getByText(`buildTime: ${NOW}`);
   });
