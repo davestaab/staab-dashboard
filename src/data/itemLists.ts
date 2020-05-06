@@ -3,7 +3,10 @@ import { ItemLists } from '@/constants';
 export default [
   {
     title: 'Activities',
-    items: [{ name: 'Baxter Gardens', complete: true }]
+    items: [
+      { name: 'Boke ride', complete: false },
+      { name: 'Baxter Gardens', complete: true }
+    ]
   },
   {
     title: 'Meals',
@@ -15,6 +18,10 @@ export default [
       { name: 'Steak and Chicken Stir Fry', complete: false },
       { name: 'Salmon', complete: false },
       { name: 'Barbecue Quesadillas', complete: false },
+      { name: 'Orange Chicken (from Costco)', complete: false },
+      { name: 'Shredded beef sandwiches', complete: false },
+      { name: 'Grilled chicken/shrimp', complete: false },
+      { name: 'Food Truck', complete: false },
       { name: 'Tacos', complete: true },
       { name: 'Shrimp and sausage sheet pan', complete: true},
       { name: 'Ribs', complete: true },
