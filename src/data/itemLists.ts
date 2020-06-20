@@ -5,17 +5,17 @@ export default [
     title: 'Activities',
     items: [
       { name: 'Bike ride', complete: false },
-      { name: 'Hammock Camping', complete: false }
+      { name: 'Hammock Camping', complete: true }
     ]
   },
   {
     title: 'Meals',
     items: [
-      { name: 'Chicken cordon blue pasta', complete: false },
       { name: 'Pork tenderloin', complete: false },
       { name: 'Chicken Carbonara', complete: false },
       { name: 'Shredded beef sandwiches', complete: false },
       { name: 'Food Truck', complete: false },
+      { name: 'Chicken cordon blue pasta', complete: true },
       { name: 'Burgers & Fries', complete: true },
       { name: 'Barbecue Chicken', complete: true },
       { name: 'Orange Chicken (from Costco)', complete: true },
@@ -35,9 +35,7 @@ export default [
       { name: 'Clean carpets', complete: false },
       { name: 'Build swing', complete: true },
       { name: 'Get something for costumes', complete: true },
-      { name: '4x4s for swing', complete: true },
-      { name: 'Hang contact paper in our room', complete: true },
-      { name: 'Polyurethane butcher block', complete: true }
+      { name: '4x4s for swing', complete: true }
     ]
   }
 ] as ItemLists;
