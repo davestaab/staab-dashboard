@@ -4,7 +4,7 @@ export default [
   {
     title: 'Activities',
     items: [
-      { name: 'Bike ride', complete: false },
+      { name: 'Bike ride', complete: true },
       { name: 'Hammock Camping', complete: true }
     ]
   },
@@ -14,7 +14,7 @@ export default [
       { name: 'Pork tenderloin', complete: false },
       { name: 'Chicken Carbonara', complete: false },
       { name: 'Shredded beef sandwiches', complete: false },
-      { name: 'Food Truck', complete: false },
+      { name: 'Food Truck', complete: true },
       { name: 'Chicken cordon blue pasta', complete: true },
       { name: 'Burgers & Fries', complete: true },
       { name: 'Barbecue Chicken', complete: true },
