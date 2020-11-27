@@ -17,7 +17,7 @@
         ></iframe>
       </div>
       <div
-        class="row-span-11 col-span-3 bg-orange-300 border-orange-700 border rounded-lg overflow-hidden"
+        class="row-span-11 col-span-3 bg-yellow-300 border-yellow-700 border rounded-lg overflow-hidden"
       >
         <item-list :items="itemLists"></item-list>
       </div>
