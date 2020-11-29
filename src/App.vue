@@ -59,7 +59,9 @@ export default defineComponent({
     const { thirtySeconds, fifteenMinutes, fiveSeconds } = createTimer();
     const { lastBuiltLocal } = useCheckBuildTime(fifteenMinutes);
     const refreshTicks = FIFTEEN_MINUTES / FIVE_SECONDS;
-    const countDownToRefresh = computed(() => refreshTicks - fiveSeconds.value % refreshTicks);
+    const countDownToRefresh = computed(
+      () => refreshTicks - (fiveSeconds.value % refreshTicks)
+    );
     return {
       quotes,
       itemLists,
