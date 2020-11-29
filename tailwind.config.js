@@ -6,7 +6,8 @@ module.exports = {
       orange: colors.orange,
       blue: colors.blue,
       red: colors.red,
-      white: colors.white
+      white: colors.white,
+      gray: colors.gray
     },
     extend: {
       gridRow: {

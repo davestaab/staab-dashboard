@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="absolute mx-4 text-xs text-gray-400">
-      {{ lastBuiltLocal }}
+    <div class="absolute mx-4 text-xs text-gray-200">
+      {{ lastBuiltLocal }}: Refresh in {{ countDownToRefresh }}
     </div>
     <div class="grid grid-cols-12 grid-row-12 gap-4 p-4 flex-grow h-full">
       <div
@@ -36,27 +36,35 @@ import Quote from '@/Quote.vue';
 import quotes from '@/data/quotes.ts';
 import itemLists from '@/data/itemLists';
 import { createTimer } from '@/Timer.ts';
-import { defineComponent, Ref } from '@vue/composition-api';
-import { ItemLists, Quote as QuoteType } from '@/constants';
+import { computed, defineComponent, Ref } from '@vue/composition-api';
+import {
+  FIFTEEN_MINUTES,
+  FIVE_SECONDS,
+  ItemLists,
+  Quote as QuoteType
+} from '@/constants';
 import useCheckBuildTime from '@/CheckBuild';
 
 interface AppState {
   quotes: Array<QuoteType>;
   itemLists: ItemLists;
   thirtySeconds: Readonly<Ref<number>>;
+  countDownToRefresh: Readonly<Ref<number>>;
   lastBuiltLocal: Readonly<Ref<string>>;
 }
 export default defineComponent({
   name: 'App',
   components: { ItemList, Quote },
   setup(): AppState {
-    const { thirtySeconds, fifteenMinutes } = createTimer();
+    const { thirtySeconds, fifteenMinutes, fiveSeconds } = createTimer();
     const { lastBuiltLocal } = useCheckBuildTime(fifteenMinutes);
-
+    const refreshTicks = FIFTEEN_MINUTES / FIVE_SECONDS;
+    const countDownToRefresh = computed(() => refreshTicks - fiveSeconds.value % refreshTicks);
     return {
       quotes,
       itemLists,
       thirtySeconds,
+      countDownToRefresh,
       lastBuiltLocal
     };
   }
