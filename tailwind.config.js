@@ -1,5 +1,13 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   theme: {
+    colors: {
+      orange: colors.orange,
+      blue: colors.blue,
+      red: colors.red,
+      white: colors.white
+    },
     extend: {
       gridRow: {
         'span-7': 'span 7 / span 7',

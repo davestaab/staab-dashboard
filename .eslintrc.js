@@ -27,5 +27,6 @@ module.exports = {
         jest: true
       }
     }
-  ]
+  ],
+  ignorePatterns: ['tailwind.config.js']
 };
