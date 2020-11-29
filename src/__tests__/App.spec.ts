@@ -19,16 +19,17 @@ describe('App', function () {
       } as Response)
     });
   it('should countdown to refresh', async function () {
+    const buildTimeString = new Date(NOW).toLocaleString();
     const { findByText } = render(App);
-    await findByText('4/6/2020, 4:23:45 PM: Refresh in 180');
+    await findByText(`${buildTimeString}: Refresh in 180`);
 
     mockNow(new Date(NOW + FIVE_SECONDS));
     jest.runOnlyPendingTimers();
-    await findByText('4/6/2020, 4:23:45 PM: Refresh in 179');
+    await findByText(`${buildTimeString}: Refresh in 179`);
 
     mockNow(new Date(NOW + FIFTEEN_MINUTES - 1));
     jest.runOnlyPendingTimers();
-    await findByText('4/6/2020, 4:23:45 PM: Refresh in 1');
+    await findByText(`${buildTimeString}: Refresh in 1`);
 
     mockNow(new Date(NOW + FIFTEEN_MINUTES));
     mockFetch.mockResolvedValueOnce({
@@ -37,11 +38,11 @@ describe('App', function () {
       }
     } as Response)
     jest.runOnlyPendingTimers();
-    await findByText('4/6/2020, 4:23:45 PM: Refresh in 180');
+    await findByText(`${buildTimeString}: Refresh in 180`);
 
     mockNow(new Date(NOW + FIFTEEN_MINUTES + FIVE_SECONDS));
     jest.runOnlyPendingTimers();
-    await findByText('4/6/2020, 4:23:45 PM: Refresh in 179');
+    await findByText(`${buildTimeString}: Refresh in 179`);
 
   });
 });
